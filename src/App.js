@@ -63,13 +63,13 @@ function App() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           audio: false,
-          video: true
-          // video: {
-          //   mandatory: {
-          //     chromeMediaSource: 'desktop',
-          //     chromeMediaSourceId: selectedScreen.id,
-          //   }
-          // }
+         // video: true
+          video: {
+            mandatory: {
+              chromeMediaSource: 'desktop',
+              chromeMediaSourceId: selectedScreen.id,
+            }
+          }
         })
 
         handleStream(selectedScreen, stream)
