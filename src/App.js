@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import io from 'socket.io-client'
 
 // const socket = io('https://4267-165-225-242-247.ngrok.io/remote-ctrl')
-const socket = io('https://remote-desktop-control-part-2-production.up.railway.app/remote-ctrl')
+const socket = io('https://remote-control-app-mahesh.herokuapp.com/remote-ctrl')
 
 
 function App() {

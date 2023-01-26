@@ -7,7 +7,6 @@ const {
     powerMonitor,
 } = require('electron')
 const path = require('path')
-const robot = require('robotjs')
 const { mouse, straightTo, Point, Button } = require("@nut-tree/nut-js");
 
 const cors = require('cors')
@@ -166,7 +165,7 @@ const createWindow = () => {
     })
 
     // mainWindow.loadURL('https://4267-165-225-242-247.ngrok.io/')
-    mainWindow.loadURL('https://remote-desktop-control-part-2-production.up.railway.app/')
+    mainWindow.loadURL('https://remote-control-app-mahesh.herokuapp.com/')
 
     mainWindow.once('ready-to-show', () => {
         displays = screen.getAllDisplays()
