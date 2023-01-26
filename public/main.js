@@ -29,7 +29,7 @@ expressApp.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-expressApp.set('port', process.env.PORT ||4000)
+expressApp.set('port', process.env.PORT ||3000)
 expressApp.use(cors({ origin: '*' }))
 
 expressApp.use(function (req, res, next) {
@@ -48,7 +48,11 @@ expressApp.use(function (req, res, next) {
 
 const httpServer = createServer(expressApp)
 // httpServer.listen(4000, '0.0.0.0')
-httpServer.listen(process.env.PORT || 4000, '0.0.0.0')
+//httpServer.listen(process.env.PORT || 4000, '0.0.0.0')
+httpServer.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode");
+  });
+
 httpServer.on('error', e => console.log('error'))
 httpServer.on('listening', () => console.log('listening.....'))
 const io = new Server(httpServer, {
