@@ -26,7 +26,7 @@ function App() {
   }
 
   const handleStream = (selectedScreen, stream) => {
-
+    console.log("handleStream...");
     setSelectedScreen(selectedScreen)
 
     socket.emit('selectedScreen', selectedScreen)
@@ -40,6 +40,7 @@ function App() {
   }
 
   const getUserMedia = async (constraints) => {
+    console.log("getting the user media..");
     try {
       const stream = await navigator.mediaDevices.getUserMedia(constraints)
 
@@ -57,17 +58,18 @@ function App() {
   }
 
   useEffect(() => {
-
-    const getStream = async (selectedScreen) => {
+    console.log("getting screen details..");
+    const getStream = async (selectedScreen) => { 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           audio: false,
-          video: {
-            mandatory: {
-              chromeMediaSource: 'desktop',
-              chromeMediaSourceId: selectedScreen.id,
-            }
-          }
+          video: true
+          // video: {
+          //   mandatory: {
+          //     chromeMediaSource: 'desktop',
+          //     chromeMediaSourceId: selectedScreen.id,
+          //   }
+          // }
         })
 
         handleStream(selectedScreen, stream)
@@ -78,8 +80,8 @@ function App() {
     }
 
     (window.electronAPI && window.electronAPI.getScreenId((event, screenId) => {
-      console.log('Renderer...', screenId)
-      getStream(screenId)
+      console.log('Renderer...prashant...'+ screenId);
+      getStream(screenId);
     })) || getUserMedia({ video: true, audio: false })
 
     socket.on('offer', offerSDP => {

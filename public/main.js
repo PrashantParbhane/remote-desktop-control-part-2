@@ -29,7 +29,7 @@ expressApp.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-expressApp.set('port', process.env.PORT ||3000)
+expressApp.set('port', process.env.PORT || 3000)
 expressApp.use(cors({ origin: '*' }))
 
 expressApp.use(function (req, res, next) {
